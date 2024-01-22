@@ -7,4 +7,4 @@ Also, I would like to acknowledge the use of OpenAI's language model ChatGPT dur
 
 Link: https://headunderheels.github.io/
 
-This website is not optimized AT ALL, and I am not an expert on accessibility properties, but still — try resizing the window.
+This website is not optimized AT ALL. Please don't attempt to use it on a phone or mobile device.
