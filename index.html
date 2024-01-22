@@ -3,9 +3,7 @@
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100;0,200;0,300;0,700;1,100;1,200;1,300;1,700&display=swap"
-      rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100;0,200;0,300;0,700;1,100;1,200;1,300;1,700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,28 +14,28 @@
   <div class="cursor-ball"></div>
   <div class="cursor-outline"></div>
 
-  <div id="background-element">
-    
+  <div id="background-element"></div>
+
   </div>
   <div class="container">
     <h1 id="title">Understanding Spatial Audio</h1>
     <h3>Disclaimer</h3>
     <p><em><span class="underline" id="Psychoacoustics">Psychoacoustics</span> is a well-studied field, in which I am not an expert. The content of this piece is largely from memory, and not from any particular source. While I will do my best to fact-check myself, I do not promise accuracy or completeness.</em></p>
     <div class="popup", id="Psychoacoustics"><strong>Wikipedia:</strong> <em>Psychoacoustics is the branch of psychophysics involving the scientific study of sound perception and audiology.</em></div>
-    
+
     <h2>Context</h2>
     <p>Spatial Audio is an emerging technology that allows for an immersive listening experience in headphones and earbuds. Companies that develop consumer audio products, like <a class="link" href="https://www.youtube.com/watch?v=WLvh7PekTPE">Apple</a> and Bose, have now worked this technology into their product ecosystems, incorporating on-board gyroscopes and accelerometers to track the motion of the head in space, allowing for some neat audio trickery.</p>
 
-    
+
     <h2>How it Works</h2>
     <p>Stereo hearing can be likened to stereo vision — just as having two eyes allows us to percieve visual depth, having two ears allows us to perceive sonic orientation.</p>
     <p>There are various cues which allow the ear and the brain to estimate the origin of a sound in space. When you hear a sound — like an angry stranger yelling at you from a car — your brain can place this person in your surroundings by looking at several simple psychoacoustic cues.</p>
-    
+
     <h4>1. Volume Attenuation</h4>
     <p>When a sound approaches the head from the side, much of the sound is absorbed by the mass of the head, resulting in a loudness reduction in the other ear.</p>
     <p>This volume attenuation can be achieved using a <span class="underline" id="panning">panning potentiometer,</span> and is not enough to sell the immersion of spatial audio.</p>
     <div class="popup", id="Psychoacoustics">A <strong>pan-pot</strong> <em>is a device used to place a sound left-to-right on a soundstage</em></div>
-    
+
     <h4>2. Time Delay</h4>
     <p>Since sound does not travel instantaneously, when you hear a sound in your environment that originates off-center, the sound will reach each one ear first, then the other a <span class="underline" id="time_delay">short time later.</span> This difference in timing is one of the most crucial auditory cues indicating direction, and is known as the <strong>interaural time difference</strong>  (ITD).</p>
     <div class="popup", id="Psychoacoustics">A person with a head width of 20cm will experience an <strong>ITD of roughly 5 milliseconds</strong> for sounds originating from the side of the head.</div>
@@ -47,7 +45,7 @@
     <p>The ear canal and head also have various resonating structures, which may impact the frequency makeup of the sound in one ear versus the other. However, modeling just the filtering effects does a very good job at selling the illusion of direction present in spatial audio.</p>
 
     <h4>4. Reverberation</h4>
-    <p>Reverberation is a property of <span class="underline" id="anechoic chambers">nearly</span> every space where sound exists — even <span class="underline" id="outdoors">outdoors.</span> As a sound spreads around a space, it repeatedly reflects off of surfaces it hits, then scattering.</p>
+    <p>Reverberation is a property of <span class="underline" id="anechoic chambers">nearly</span> every space where sound exists — even <span class="underline" id="outdoors">outdoors.</span> As a sound spreads around a space, it repeatedly reflects off of surfaces it hits, then scattering.</p>
     <div class="popup", id="anechoic chambers"><strong>Anechoic chambers</strong> are spaces designed to minimize sound reflection reverberation by optimizing the absorption of sound.</div>
     <div class="popup", id="outdoors"><strong>Thunder</strong> is caused by the reverberation of an auditory impulse from lightning; this is partly why thunder rumbles at a distance, and sounds transient when it strikes your house and blows it up.</div>
     <p>Particularly indoors, reverberation cues us in to sound direction because it manifests the shape of our surroundings in sound. Sounds which approach one ear will reverberate off of opposing walls before approaching the other ear, incurring a further delay time.</p>
@@ -58,11 +56,17 @@
     <p>In the following audio example, you can click to <button class="button" id="example1" onclick="toggleAudio()">listen</button> to spatial audio! Be sure to wear headphones — and watch the volume!</p>
     <p>As you listen, slowly <strong>move your cursor</strong> around the screen to update the location of the sound source in realtime.</p>
     <p>Note that changes to the signal are readily noticable left-to-right, and less so vertically. This is because the ITD does not change for purely vertical movements of the cursor, but changes dramatically for left-right movements. The changes you hear when altering the vertical position of your cursor are due to the <span class="underline" id="anisotropy">anisotropic</span> attenuations and resonances of the head.</p>
-    <div class="popup", id="anisotropy"><strong>Anisotropy</strong> refers to a lack of directional invariance — directional irregularity.</div>
+    <div class="popup", id="anisotropy"><strong>Anisotropy</strong> refers to a lack of directional invariance — directional irregularity
+    </div>
+
+    <h2>A Note on the Periodicity</h2>
+    <p>Usually, very sinusoidal (pure tone) sounds are difficult to locate via the ITD cue, since they are highly periodic. Due to the periodicity, the direction of the sound becomes less distinguishable.</p>
+    <p>On the other hand, very noisy, or irregular sounds are easier to make out since they are not periodic. For this reason, many construction equipment manufacturers have begun replacing the traditional "beep-beep-beep" backing up alarms with pure noise, so as to alert those nearby more accurately to the location of dangerous equipment.
+    </p>
     <br><br>
     <January><strong>Micah Hillman</strong><br>January 21, 2024</p>
   </div>
-  
+
   <footer class="footer">
     Copyright &copy; 2023<br>
     Micah Hillman<br>
