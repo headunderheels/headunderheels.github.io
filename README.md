@@ -1,5 +1,7 @@
 # YETI Website Submission
 
+It works very poorly on Safari— you will unfortunately miss out on some key features if not using Chrome, Firefox, etc. Sorry in advance :(
+
 Link: https://headunderheels.github.io/
 
 For the most part, I will let the website do the talking. There's a lot here, so be sure to poke around and hover and click on everything. Please excuse the mess that is the backend on this webpage — I have no idea how to code efficiently.
