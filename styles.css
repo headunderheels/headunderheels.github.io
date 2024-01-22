@@ -1,0 +1,317 @@
+html {
+  font-size: clamp(12px, 3vw, 22px);
+}
+
+body,
+html {
+  background-color: white;
+  font-family: "Hanken Grotesk", sans-serif;
+  cursor: none;
+}
+
+p {
+  font-size: 2rem;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+}
+
+img {
+  padding: 0px;
+  margin: 0px;
+  padding-top: 20px;
+  width: 100%;
+  height: auto;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+#progress-bar-container {
+  mix-blend-mode: difference;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin: 10px 0;
+  transform-origin: center center;
+}
+
+.opencircle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin: 10px 0;
+  transform-origin: center center;
+  cursor: pointer;
+}
+
+.underline {
+  position: relative;
+  border-bottom: .5px solid black;
+  cursor: crosshair;
+}
+.underline:hover {
+  font-weight: bold;
+  border-bottom: .8px solid black;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  max-width: 22rem;
+  min-width: 100px;
+  width: 70%;
+  background-color: #fff;
+  border: 1px solid #000;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  z-index: 9999;
+  transition: all 0.1s ease-out;
+}
+
+/* Add the base styles for the container */
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(3rem, calc(2% + 1rem), 15%);
+  padding-right: clamp(1rem, calc(4% + 1rem), 25%);
+  padding-bottom: 7rem;
+}
+
+/* Add custom styles for larger screens */
+@media screen and (min-width: 992px) {
+  .container {
+    padding-left: 15%;
+    padding-right: 25%;
+  }
+
+  .footer {
+    position: absolute;
+    /* Change the position to absolute */
+    right: 0;
+    /* Align the footer to the right */
+    bottom: 2rem;
+    /* Adjust the distance from the bottom */
+    padding-left: 0;
+    /* Remove left padding */
+    padding-right: 0;
+    /* Remove right padding */
+    width: 15%;
+    /* Set the width of the footer */
+    text-align: right;
+    /* Right-align the text */
+  }
+}
+
+/* Add the fade effect at the bottom of the page */
+/*body::before {*/
+/*  content: '';*/
+/*  position: fixed;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*  right: 0;*/
+/*  height: 75px;*/
+/*  background-image: linear-gradient(to top, rgba(255, 255, 255, 0), #ffffff);*/
+/*  pointer-events: none;*/
+/*  z-index: 1000;*/
+/*}*/
+
+.background-element {
+  -webkit-transform: translateZ(-999px) scale(2);
+  transform: translateZ(-999px) scale(2);
+  z-index: 3;
+}
+
+#banner {
+  padding: 0;
+}
+
+.footer {
+  position: fixed;
+  /* Change the position to absolute */
+  font-size: .70rem;
+  /* Adjust the font size */
+  color: #e6e6e6;
+  /* Set the color to a lighter gray */
+  text-align: right;
+  padding-left: clamp(3rem, calc(2% + 1rem), 15%);
+  padding-right: clamp(1rem, calc(4% + 1rem), 25%);
+  padding-top: 1rem;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+
+/* Style the email link */
+.footer-email {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-email:hover {
+  text-decoration: underline;
+}
+
+/* Set scalable typographical hierarchy for headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Hanken Grotesk', sans-serif;
+}
+
+h1 {
+  word-wrap: break-word;
+  hyphens: auto;
+  font-size: 2.9rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 300;
+}
+
+h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+h6 {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Unbounded", sans-serif;
+}
+
+/* Set scalable font size for paragraphs */
+p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.cursor-ball {
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  transition: 5ms ease-in-out;
+}
+
+.cursor-outline {
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid #000;
+  transition: all 0.2s ease-out;
+}
+
+.cursor-ball,
+.cursor-outline {
+  border-radius: 50%;
+  position: absolute;
+  z-index: 100;
+  pointer-events: none;
+  transform: translate(-50%, -50%)
+}
+
+.cursor-ball-mousedown {
+  background-color: goldenrod;
+  border: 1px solid #000;
+}
+
+.cursor-outline-mousedown {
+  width: 2rem;
+  height: 2rem;
+  border: 1.5px solid #000;
+}
+
+.cursor-ball-hover {
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: all 0.1s ease-out;
+}
+.cursor-outline-hover {
+  transition: all 0.2s ease-out;
+  width: 2rem;
+  height: 2rem;
+}
+.cursor-ball-hover-underline {
+  transition: all 0.1s ease-out;
+  opacity: 0;
+}
+.cursor-outline-hover-underline {
+  transition: all 0.2s ease-out;
+  width: 6rem;
+  height: 6rem;
+  background-color: white;
+  mix-blend-mode: difference;
+}
+
+.cursor-ball-spatial-audio {
+  transition: all 0.2s ease-out;
+  background-color: #255ADF;
+  border: solid 1px black;
+}
+.cursor-outline-spatial-audio {
+  transition: all 0.4s ease-out;
+  width: 120rem;
+  height: 120rem;
+  mix-blend-mode: difference;
+  background-color: #fff;
+}
+
+::selection {
+  background: goldenrod;
+}
+
+.button {
+  cursor: none;
+  background-color: white;
+  border: 1px solid black;
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 1.2rem;
+  transition: all 0.4s ease-out;
+}
+.button-active {
+  transition: all 0.4s ease-out;
+  filter: invert(100%);
+}
+
+.image {
+  cursor: crosshair;
+}
+
+.link {
+  color: goldenrod;
+  cursor: none;
+}
