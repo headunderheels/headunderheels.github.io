@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsROOT Visualization</title>
+    <script src="https://root.cern/js/latest/jsroot.js"></script>
+</head>
+   <body>
+      <div id="drawing" style="width:800px; height:600px"></div>
+   </body>
+   <script type='module'>
+      import { openFile, draw } from 'https://root.cern/js/latest/modules/main.mjs';
+      let file = await openFile('https://root.cern/js/files/hsimple.root');
+      let obj = await file.readObject('hpxpy;1');
+      draw('drawing', obj, 'colz');
+   </script>
+</html>
