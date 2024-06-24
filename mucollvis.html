@@ -32,14 +32,12 @@
     draw,
     settings
   } from 'https://root.cern/js/latest/modules/main.mjs';
-  import { setNormalMaterial } from './TGeoPainter.mjs'; // Import the function or object from TGeoPainter.mjs
-
   let file = await openFile('./MuColl_10TeV_v0A.root');
   let obj = await file.readObject('default;1');
-
-  setNormalMaterial(obj); // Apply the normal material settings to the object
-
   draw('drawing', obj, 'wire;ctrl;ssao;BLACK');
 </script>
+
+</html>
+
 
 </html>
