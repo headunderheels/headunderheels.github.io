@@ -26,7 +26,7 @@
         async function drawDetectorGeometry() {
             let file = await openFile('MuColl_10TeV_v0A.root');
             let geom = await file.readObject('default;1');
-            drawGeometry('drawing', geom, 'wire');
+            drawGeometry('drawing', geom);
         }
         
         drawDetectorGeometry();
