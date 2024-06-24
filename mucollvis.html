@@ -24,13 +24,12 @@
         import { openFile, drawGeometry } from 'https://root.cern/js/latest/modules/main.mjs';
         
         async function drawDetectorGeometry() {
-            let file = await openFile('MuColl_10TeV_v0A.root');
+            let file = await openFile('https://root.cern/js/files/geom.root');
             let geom = await file.readObject('default;1');
-            drawGeometry('drawing', geom);
+            drawGeometry('drawing', geom, 'wireframe');
         }
         
         drawDetectorGeometry();
     </script>
 </body>
 </html>
-
