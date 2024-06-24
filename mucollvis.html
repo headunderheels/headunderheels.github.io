@@ -18,18 +18,13 @@
         }
     </style>
 </head>
-<body>
-    <div id="drawing"></div>
-    <script type='module'>
-        import { openFile, drawGeometry } from 'https://root.cern/js/latest/modules/main.mjs';
-        
-        async function drawDetectorGeometry() {
-            let file = await openFile('https://root.cern/js/files/geom.root');
-            let geom = await file.readObject('default;1');
-            drawGeometry('drawing', geom, 'wireframe');
-        }
-        
-        drawDetectorGeometry();
-    </script>
-</body>
+   <body>
+      <div id="drawing" style="width:800px; height:600px"></div>
+   </body>
+   <script type='module'>
+      import { openFile, draw } from 'https://root.cern/js/latest/modules/main.mjs';
+      let file = await openFile('./MuColl_10TeV_v0A.root');
+      let obj = await file.readObject('default;1');
+      draw('drawing', obj, 'wire');
+   </script>
 </html>
