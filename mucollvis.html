@@ -25,22 +25,11 @@
 <script type='module'>
     import { openFile, draw } from 'https://root.cern/js/latest/modules/main.mjs';
 
-    // Set the size of the drawing div to the size of the window
-    const drawingDiv = document.getElementById('drawing');
-    drawingDiv.style.width = window.innerWidth + 'px';
-    drawingDiv.style.height = window.innerHeight + 'px';
-
     // Load and draw the object
     async function loadAndDraw() {
         let file = await openFile('./MuColl_10TeV_v0A.root');
         let obj = await file.readObject('default;1');
         draw('drawing', obj, 'wire');
     }
-
-    // Call the loadAndDraw function when the window is resized
-    window.addEventListener('resize', loadAndDraw);
-
-    // Initial load and draw
-    loadAndDraw();
 </script>
 </html>
