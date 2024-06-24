@@ -21,10 +21,16 @@
 <body>
     <div id="drawing"></div>
     <script type='module'>
-        import { openFile, draw } from 'https://root.cern/js/latest/modules/main.mjs';
-        let file = await openFile('https://root.cern/js/files/hsimple.root');
-        let obj = await file.readObject('hpxpy;1');
-        draw('drawing', obj, 'colz');
+        import { openFile, drawGeometry } from 'https://root.cern/js/latest/modules/main.mjs';
+        
+        async function drawDetectorGeometry() {
+            let file = await openFile('MuColl_10TeV_v0A.root');
+            let geom = await file.readObject('default;1');
+            drawGeometry('drawing', geom, 'wire');
+        }
+        
+        drawDetectorGeometry();
     </script>
 </body>
 </html>
+
