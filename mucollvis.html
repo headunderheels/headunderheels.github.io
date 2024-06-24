@@ -19,17 +19,13 @@
         }
     </style>
 </head>
-<body>
-    <div id="drawing"></div>
-</body>
-<script type='module'>
-    import { openFile, draw } from 'https://root.cern/js/latest/modules/main.mjs';
-
-    // Load and draw the object
-    async function loadAndDraw() {
-        let file = await openFile('./MuColl_10TeV_v0A.root');
-        let obj = await file.readObject('default;1');
-        draw('drawing', obj, 'wire');
-    }
-</script>
+   <body>
+      <div id="drawing" style="width:100%; height:100%"></div>
+   </body>
+   <script type='module'>
+      import { openFile, draw } from 'https://root.cern/js/latest/modules/main.mjs';
+      let file = await openFile('./MuColl_10TeV_v0A.root');
+      let obj = await file.readObject('default;1');
+      draw('drawing', obj, 'wire');
+   </script>
 </html>
