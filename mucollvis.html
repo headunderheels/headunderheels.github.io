@@ -6,24 +6,13 @@
     <title>jsROOT Visualization</title>
     <script src="https://root.cern/js/latest/jsroot.js"></script>
 </head>
-<body>
-    <h1>jsROOT Visualization</h1>
-    <div id="visualization" style="width: 600px; height: 400px;"></div>
-
-    <script>
-        // Function to load and display the jsROOT visualization
-        function loadVisualization() {
-            // URL of the ROOT file or JSON file
-            const fileURL = 'https://root.cern/js/files/hsimple.root'; // Example ROOT file
-
-            // Create a JSROOT painter
-            JSROOT.NewHttpRequest(fileURL, 'object', function(obj) {
-                JSROOT.draw('visualization', obj);
-            }).send();
-        }
-
-        // Call the function to load the visualization when the page loads
-        window.onload = loadVisualization;
-    </script>
-</body>
+   <body>
+      <div id="drawing" style="width:800px; height:600px"></div>
+   </body>
+   <script type='module'>
+      import { openFile, draw } from 'https://root.cern/js/latest/modules/main.mjs';
+      let file = await openFile('https://root.cern/js/files/hsimple.root');
+      let obj = await file.readObject('hpxpy;1');
+      draw('drawing', obj, 'colz');
+   </script>
 </html>
