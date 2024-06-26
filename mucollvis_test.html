@@ -48,6 +48,9 @@
          if (d.has('instancing'))
             opt.instancing = 1;
 
+         if (d.has('wireframe'))
+            opt.wireframe = 1;
+
          // function demonstrate creation of three.js model
          let obj3d = build(obj, opt);
 
