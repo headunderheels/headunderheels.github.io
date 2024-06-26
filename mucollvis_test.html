@@ -119,12 +119,12 @@
        scene.add( light );
 
        // first draw dummy object, seen in the beginning
-       let material = new MeshLambertMaterial({side: DoubleSide, color: 'red', vertexColors: false});
+       let material = new MeshLambertMaterial({side: DoubleSide, color: 'red', vertexColors: false, transparent: true, opacity: 0.5});
        dummy = new Mesh(new TetrahedronGeometry(75, 0), material);
        // object.position.set( 200, 0, 200 );
        scene.add( dummy );
 
-       renderer = new WebGLRenderer({ antialias: true });
+       renderer = new WebGLRenderer({ antialias: false });
        renderer.setPixelRatio( window.devicePixelRatio );
        renderer.setSize( window.innerWidth, window.innerHeight );
 

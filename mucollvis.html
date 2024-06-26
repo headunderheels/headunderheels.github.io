@@ -33,10 +33,10 @@
     draw
   } from 'https://root.cern/js/latest/modules/main.mjs';
 
-
+  import Stats from 'https://threejs.org/examples/jsm/libs/stats.module.js';
   
   let file = await openFile('./MuColl_10TeV_v0A.root');
-  
+
   let obj = await file.readObject('default;1');
   
   draw('drawing', obj, 'wire;dray;ssao;BLACK;toon;can_rotate');
