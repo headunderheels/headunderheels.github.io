@@ -61,6 +61,16 @@
             opt.material = 'normal';
             console.log('normal');
          }
+
+         // Add UnrealBloomPass to the geometry
+         const bloomPass = new UnrealBloomPass();
+         renderer.toneMappingExposure = Math.pow(0.94, 5.0);
+         bloomPass.threshold = 0.1;
+         bloomPass.strength = 1.5;
+         bloomPass.radius = 0.1;
+         renderer.toneMapping = THREE.ReinhardToneMapping;
+         renderer.outputEncoding = THREE.sRGBEncoding;
+         composer.addPass(bloomPass);
          
          // function demonstrate creation of three.js model
          let obj3d = build(obj, opt);
