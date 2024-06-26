@@ -41,20 +41,26 @@
             opt.numnodes *= 100;
          }
 
-         if (d.has('dflt') || d.has('dflt_colors'))
+         if (d.has('dflt') || d.has('dflt_colors')) {
             opt.dflt_colors = true;
+            console.log('dflt_colors');
+         }
 
          // enable usage of InstancedMesh
-         if (d.has('instancing'))
+         if (d.has('instancing')) {
             opt.instancing = 1;
+            console.log('instancing');
+         }
 
-         if (d.has('wireframe'))
-            opt.wireframe = 1;
+         if (d.has('wireframe')) {
+            opt.wireframe = 'wireframe';
             console.log('wireframe');
+         }
 
-         if (d.has('normal'))
-            opt.material_kind = 'normal';
+         if (d.has('normal')) {
+            opt.material = 'normal';
             console.log('normal');
+         }
          
          // function demonstrate creation of three.js model
          let obj3d = build(obj, opt);
