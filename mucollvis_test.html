@@ -51,6 +51,10 @@
          if (d.has('wireframe'))
             opt.wireframe = 1;
             console.log('wireframe');
+
+         if (d.has('normal'))
+            opt.material_kind = 'normal';
+            console.log('normal');
          
          // function demonstrate creation of three.js model
          let obj3d = build(obj, opt);
