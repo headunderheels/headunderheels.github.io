@@ -102,7 +102,7 @@
 
          camera.position.x = Math.cos(timer)*geom_size;
          camera.position.z = Math.sin(timer)*geom_size;
-         camera.position.y = geom_size;
+         camera.position.y = Math.sin(geom_size/2 + timer)*geom_size/2;
 
          camera.lookAt( scene.position );
 
@@ -134,11 +134,11 @@
        light.position.set(0, 1, 0);
        scene.add( light );
 
-      //  // first draw dummy object, seen in the beginning
-      //  let material = new MeshLambertMaterial({side: DoubleSide, vertexColors: false, transparent: true, opacity: 0.5});
-      //  dummy = new Mesh(new TetrahedronGeometry(75, 0), material);
-      //  // object.position.set( 200, 0, 200 );
-      //  scene.add( dummy );
+       // first draw dummy object, seen in the beginning
+       let material = new MeshLambertMaterial({side: DoubleSide, vertexColors: false, transparent: true, opacity: 0.5});
+       dummy = new Mesh(new TetrahedronGeometry(75, 0), material);
+       // object.position.set( 200, 0, 200 );
+       scene.add( dummy );
 
        renderer = new WebGLRenderer({ antialias: true });
        renderer.setPixelRatio( window.devicePixelRatio );
