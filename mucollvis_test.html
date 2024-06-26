@@ -118,11 +118,11 @@
        light.position.set(0, 1, 0);
        scene.add( light );
 
-       // first draw dummy object, seen in the beginning
-       let material = new MeshLambertMaterial({side: DoubleSide, vertexColors: false, transparent: true, opacity: 0.5});
-       dummy = new Mesh(new TetrahedronGeometry(75, 0), material);
-       // object.position.set( 200, 0, 200 );
-       scene.add( dummy );
+      //  // first draw dummy object, seen in the beginning
+      //  let material = new MeshLambertMaterial({side: DoubleSide, vertexColors: false, transparent: true, opacity: 0.5});
+      //  dummy = new Mesh(new TetrahedronGeometry(75, 0), material);
+      //  // object.position.set( 200, 0, 200 );
+      //  scene.add( dummy );
 
        renderer = new WebGLRenderer({ antialias: false });
        renderer.setPixelRatio( window.devicePixelRatio );
@@ -146,7 +146,7 @@
           let itemname = d.get("item") || 'default;1';
           let file = await openFile(filename);
           let obj = await file.readObject(itemname);
-         //  add_geometry(obj);
+          add_geometry(obj);
        } else {
           // load geometry from JSON as object
           let obj = await httpRequest(filename, 'object');
