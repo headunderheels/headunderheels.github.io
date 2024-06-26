@@ -31,7 +31,8 @@
 
       import Stats from 'https://threejs.org/examples/jsm/libs/stats.module.js';
 
-      let container, stats,  camera, scene, renderer, geom_size = 400, dummy = null, d = decodeUrl();
+      let container, stats,  camera, scene, renderer, geom_size = 400, dummy = null,
+         d = decodeUrl();
 
       function add_geometry(obj) {
 
@@ -67,7 +68,7 @@
          let obj3d = build(obj, opt);
 
          if (!obj3d) return;
-         // scene.remove( dummy );
+         scene.remove( dummy );
          scene.add( obj3d );
 
          let box3 = new Box3().setFromObject(obj3d);
@@ -111,7 +112,6 @@
 
             object.rotation.x = timer * 5;
             object.rotation.y = timer * 2.5;
-            // object.zoom = timer * 3.14159265;
 
          }
 
@@ -134,11 +134,11 @@
        light.position.set(0, 1, 0);
        scene.add( light );
 
-       // first draw dummy object, seen in the beginning
-       let material = new MeshLambertMaterial({side: DoubleSide, vertexColors: false, transparent: true, opacity: 0.5});
-       dummy = new Mesh(new TetrahedronGeometry(75, 0), material);
-       // object.position.set( 200, 0, 200 );
-       scene.add( dummy );
+      //  // first draw dummy object, seen in the beginning
+      //  let material = new MeshLambertMaterial({side: DoubleSide, vertexColors: false, transparent: true, opacity: 0.5});
+      //  dummy = new Mesh(new TetrahedronGeometry(75, 0), material);
+      //  // object.position.set( 200, 0, 200 );
+      //  scene.add( dummy );
 
        renderer = new WebGLRenderer({ antialias: true });
        renderer.setPixelRatio( window.devicePixelRatio );
