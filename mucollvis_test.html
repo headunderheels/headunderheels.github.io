@@ -137,13 +137,13 @@
 
        // ------------------- reading geometry object --------------------------
 
-       let filename = d.get("file") || 'https://root.cern/js/files/geom/simple_alice.json.gz';
+       let filename = d.get("file") || './MuColl_10TeV_v0A.root';
 
        // filename = 'https://root.cern/files/tank.root';
 
        if (filename.indexOf('.root') > 0) {
           // load geometry from ROOT file
-          let itemname = d.get("item") || 'geom';
+          let itemname = d.get("item") || 'default;1';
           let file = await openFile(filename);
           let obj = await file.readObject(itemname);
           add_geometry(obj);
