@@ -24,21 +24,71 @@
 </head>
 
 <body>
-  <div class="cursor-ball"></div>
-  <div class="cursor-outline"></div>
   <div id="drawing" style="width:100%; height:100%"></div>
 </body>
-<script type='module'>
+<!-- <script type='module'>
   import {
     openFile,
-    draw,
-    TGeoPainter
+    draw
   } from 'https://root.cern/js/latest/modules/main.mjs';
   let file = await openFile('./MuColl_10TeV_v0A.root');
   let obj = await file.readObject('default;1');
   draw('drawing', obj, 'wire;dray;ssao;BLACK;toon;can_rotate');
+</script> -->
+<script type='module'>
+  import {
+    httpRequest,
+    loadScript,
+    draw
+  } from '../modules/main.mjs';
+
+  import {
+    Mesh,
+    MeshPhongMaterial
+  } from 'three';
+
+  import {
+    STLLoader
+  } from 'https://threejs.org/examples/jsm/loaders/STLLoader.js';
+
+  const geom_file = 'https://root.cern/js/files/geom/evegeoshape.json.gz',
+    stl_file = 'https://threejs.org/examples/models/stl/ascii/slotted_disk.stl';
+
+  // get geometry object
+  let obj = await httpRequest(geom_file, 'object');
+
+  // draw object, also load three.js functionality
+  let geo_painter = await draw('drawing', obj);
+
+  // define global THREE handle requred by STLLoader.js
+  // globalThis.THREE = Object.assign({}, THREE);
+
+  // load extra three.js sources
+
+  const loader = new STLLoader();
+  loader.load(stl_file, geometry => {
+
+    const material = new MeshPhongMaterial({
+      color: 0xff5533,
+      specular: 0x111111,
+      shininess: 200
+    });
+    const mesh = new Mesh(geometry, material);
+
+    mesh.position.set(600, 0, 0);
+    mesh.rotation.set(0, -Math.PI / 2, 0);
+    mesh.scale.set(500, 500, 500);
+
+    mesh.castShadow = true;
+    mesh.receiveShadow = true;
+
+    // this is for JSROOT to mark as THREE.Mesh object
+    mesh._typename = 'Mesh';
+
+    geo_painter.drawExtras(mesh, 'stl');
+  });
 </script>
-<script src="js/cursor.js"></script>
+
 </html>
 
 
