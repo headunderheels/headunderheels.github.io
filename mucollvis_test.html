@@ -23,7 +23,7 @@
       import { decodeUrl, httpRequest, openFile } from 'https://root.cern/js/latest/modules/main.mjs';
 
       import { Box3, Vector3, PerspectiveCamera, Scene, AmbientLight, DirectionalLight, DoubleSide,
-               MeshLambertMaterial, Mesh, TetrahedronGeometry, WebGLRenderer } from 'https://root.cern/js/latest/modules/three.mjs';
+               MeshNormalMaterial, Mesh, TetrahedronGeometry, WebGLRenderer } from 'https://root.cern/js/latest/modules/three.mjs';
 
       import { build, produceRenderOrder } from 'https://root.cern/js/latest/modules/geom/TGeoPainter.mjs';
 
@@ -119,7 +119,7 @@
        scene.add( light );
 
        // first draw dummy object, seen in the beginning
-       let material = new MeshLambertMaterial({side: DoubleSide, color: 'red', vertexColors: false, transparent: true, opacity: 0.5});
+      let material = new MeshNormalMaterial({side: DoubleSide, transparent: true, opacity: 0.1});
        dummy = new Mesh(new TetrahedronGeometry(75, 0), material);
        // object.position.set( 200, 0, 200 );
        scene.add( dummy );
