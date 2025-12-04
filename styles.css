@@ -225,23 +225,26 @@ p {
   width: 8px;
   height: 8px;
   background-color: #000;
-  transition: 5ms ease-in-out;
+  transition: width 0.1s ease-out, height 0.1s ease-out, background-color 0.1s ease-out, opacity 0.1s ease-out, border 0.1s ease-out;
 }
 
 .cursor-outline {
   width: 3rem;
   height: 3rem;
   border: 1px solid #000;
-  transition: all 0.12s ease-out;
+  transition: width 0.12s ease-out, height 0.12s ease-out, border 0.12s ease-out, background-color 0.12s ease-out;
 }
 
 .cursor-ball,
 .cursor-outline {
   border-radius: 50%;
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   z-index: 100;
   pointer-events: none;
-  transform: translate(-50%, -50%)
+  /* will-change is appropriate here as cursor moves on every mousemove event */
+  will-change: transform;
 }
 
 .cursor-ball-mousedown {
@@ -314,4 +317,31 @@ p {
 .link {
   color: goldenrod;
   cursor: none;
+}
+
+/* Disable custom cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  body, html, .button, .link, .underline {
+    cursor: auto !important;
+  }
+  
+  .cursor-ball,
+  .cursor-outline {
+    display: none;
+  }
+}
+
+/* Fallback for browsers that don't support mix-blend-mode */
+@supports not (mix-blend-mode: difference) {
+  #progress-bar-container,
+  .footer {
+    mix-blend-mode: normal;
+    color: #666;
+  }
+  
+  .cursor-outline-hover-underline,
+  .cursor-outline-spatial-audio {
+    mix-blend-mode: normal;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
 }
