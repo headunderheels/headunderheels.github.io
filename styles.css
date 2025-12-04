@@ -243,6 +243,7 @@ p {
   left: 0;
   z-index: 100;
   pointer-events: none;
+  /* will-change is appropriate here as cursor moves on every mousemove event */
   will-change: transform;
 }
 

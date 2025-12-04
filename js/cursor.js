@@ -8,11 +8,15 @@ let cursorOutline = document.querySelector(".cursor-outline");
 if (!cursorBall || !cursorOutline) {
   document.documentElement.style.cursor = 'auto';
 } else {
+  // Get cursor element dimensions once for better performance
+  const ballRadius = cursorBall.offsetWidth / 2;
+  const outlineRadius = cursorOutline.offsetWidth / 2;
+  
   document.addEventListener("mousemove", (e) => {
-      // Combine the mouse position with the -50% centering offset from CSS
-      cursorBall.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
+      // Use translate3d for better hardware acceleration and calculate offset in JS
+      cursorBall.style.transform = `translate3d(${e.clientX - ballRadius}px, ${e.clientY - ballRadius}px, 0)`;
     
-      cursorOutline.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
+      cursorOutline.style.transform = `translate3d(${e.clientX - outlineRadius}px, ${e.clientY - outlineRadius}px, 0)`;
     });
   
   document.addEventListener("mousedown", (e) => {
