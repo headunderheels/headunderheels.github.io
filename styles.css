@@ -225,7 +225,7 @@ p {
   width: 8px;
   height: 8px;
   background-color: #000;
-  transition: 5ms ease-in-out;
+  transition: width 0.1s ease-out, height 0.1s ease-out, background-color 0.1s ease-out, opacity 0.1s ease-out, border 0.1s ease-out;
 }
 
 .cursor-outline {
@@ -238,10 +238,13 @@ p {
 .cursor-ball,
 .cursor-outline {
   border-radius: 50%;
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   z-index: 100;
   pointer-events: none;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
+  will-change: transform;
 }
 
 .cursor-ball-mousedown {

@@ -5,11 +5,9 @@ let cursorBall = document.querySelector(".cursor-ball");
 let cursorOutline = document.querySelector(".cursor-outline");
 
 document.addEventListener("mousemove", (e) => {
-    cursorBall.style.top = e.pageY + "px";
-    cursorBall.style.left = e.pageX + "px";
+    cursorBall.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
   
-    cursorOutline.style.top = e.pageY + "px";
-    cursorOutline.style.left = e.pageX + "px";
+    cursorOutline.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
   });
   
 document.addEventListener("mousedown", (e) => {
