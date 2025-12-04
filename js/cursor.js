@@ -8,9 +8,9 @@ let cursorOutline = document.querySelector(".cursor-outline");
 if (!cursorBall || !cursorOutline) {
   document.documentElement.style.cursor = 'auto';
 } else {
-  // Get cursor element dimensions once for better performance
-  const ballRadius = cursorBall.offsetWidth / 2;
-  const outlineRadius = cursorOutline.offsetWidth / 2;
+  // Use fixed cursor dimensions from CSS to avoid layout reflow (8px ball, 3rem outline)
+  const ballRadius = 4; // 8px / 2
+  const outlineRadius = 24; // 3rem = ~48px at typical 16px base, so radius = 24px
   
   document.addEventListener("mousemove", (e) => {
       // Use translate3d for better hardware acceleration and calculate offset in JS
