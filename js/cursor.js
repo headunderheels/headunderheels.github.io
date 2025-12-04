@@ -9,9 +9,10 @@ if (!cursorBall || !cursorOutline) {
   document.documentElement.style.cursor = 'auto';
 } else {
   document.addEventListener("mousemove", (e) => {
-      cursorBall.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      // Combine the mouse position with the -50% centering offset from CSS
+      cursorBall.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
     
-      cursorOutline.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      cursorOutline.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
     });
   
   document.addEventListener("mousedown", (e) => {

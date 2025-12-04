@@ -232,7 +232,7 @@ p {
   width: 3rem;
   height: 3rem;
   border: 1px solid #000;
-  transition: width 0.12s ease-out, height 0.12s ease-out, border 0.12s ease-out, background-color 0.12s ease-out, mix-blend-mode 0.12s ease-out;
+  transition: width 0.12s ease-out, height 0.12s ease-out, border 0.12s ease-out, background-color 0.12s ease-out;
 }
 
 .cursor-ball,
@@ -243,7 +243,6 @@ p {
   left: 0;
   z-index: 100;
   pointer-events: none;
-  transform: translate(-50%, -50%);
   will-change: transform;
 }
 
